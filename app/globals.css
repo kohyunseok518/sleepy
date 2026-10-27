@@ -30,6 +30,10 @@ body {
   line-height: 1.5;
   letter-spacing: -0.02em;
   -webkit-font-smoothing: antialiased;
+  /* 한글은 단어 중간에서 줄을 바꾸지 않는다("링/크" 방지). */
+  word-break: keep-all;
+  /* 긴 주소처럼 끊을 곳이 없는 글은 칸 안에서 끊는다. 없으면 375px에서 가로 스크롤이 생겼다(2026-10-27 확인). */
+  overflow-wrap: anywhere;
 }
 
 a {

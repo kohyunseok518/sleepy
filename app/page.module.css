@@ -20,6 +20,10 @@
 }
 
 .logo {
+  /* 터치 영역 44px 이상(WCAG 2.5.5 권장). 측정값은 33px이었다. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 22px;
   font-weight: 800;
   letter-spacing: -0.04em;
@@ -33,6 +37,10 @@
 .nav a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  /* 측정값 40px → 44px 이상으로 올린다. */
+  min-height: 44px;
+  min-width: 44px;
   padding: 8px 10px;
   font-size: 16px;
   font-weight: 500;
@@ -51,6 +59,8 @@
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  /* 이미지가 안 불러와져도 흰 화면이 되지 않게 바탕색을 깐다. */
+  background: linear-gradient(#eef0f8, #dfe3f2);
   /* 배경 이미지(z-index:-1)가 히어로 밖으로 내려가지 않게 쌓임 맥락을 만든다. */
   isolation: isolate;
 }
@@ -58,6 +68,11 @@
 .heroImage {
   object-fit: cover;
   z-index: -1;
+  /* 로드 실패 시 대체 텍스트가 왼쪽 위에 붙지 않고 가운데 위쪽에 보이게 한다. */
+  padding-top: 16px;
+  color: var(--text-sub);
+  font-size: 14px;
+  text-align: center;
 }
 
 .heroText {
@@ -82,7 +97,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 48px;
+  max-width: 100%;
   padding: 14px 28px;
+  text-align: center;
   border-radius: 999px;
   background: var(--brand);
   color: #fff;
@@ -148,6 +166,12 @@
   width: 100%;
   height: auto;
   margin-bottom: 20px;
+  /* 로드 실패 시 빈 칸 대신 회색 상자 가운데에 대체 텍스트를 보여 준다. */
+  background: var(--line);
+  color: var(--text-sub);
+  font-size: 14px;
+  text-align: center;
+  line-height: 3;
 }
 
 .card h3,
@@ -214,6 +238,7 @@
 }
 
 .faq summary {
+  min-height: 44px;
   padding: 20px 4px;
   font-size: 17px;
   font-weight: 600;

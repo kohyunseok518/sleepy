@@ -1,12 +1,38 @@
+/*
+ * 디자인 규칙: 색 2개(밤·달빛), 글꼴 1개(Pretendard), 간격은 8px 배수만 쓴다.
+ * 흰색과 투명도는 두 색을 밝히거나 흐리게 하는 용도로만 쓴다.
+ */
 :root {
-  --text: #232324;
-  --text-sub: #6c6d6f;
-  --bg: #ffffff;
-  --bg-gray: #f5f6f8;
-  --line: #e4e5e8;
-  --brand: #2f3a8f;
-  --brand-dark: #222a6b;
-  --header-height: 64px;
+  --night: #121a36;
+  --moon: #c8cdfa;
+
+  --white: #ffffff;
+  --text: var(--night);
+  --text-sub: rgba(18, 26, 54, 0.64);
+  --line: rgba(18, 26, 54, 0.12);
+  --on-night: var(--white);
+  --on-night-sub: rgba(255, 255, 255, 0.68);
+  --line-night: rgba(200, 205, 250, 0.2);
+
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+
+  --radius: 24px;
+  --header-height: 112px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 72px;
+  }
 }
 
 * {
@@ -17,20 +43,19 @@
 
 html {
   scroll-behavior: smooth;
-  /* 고정 헤더 아래로 앵커 제목이 가려지지 않게 한다. */
   scroll-padding-top: var(--header-height);
 }
 
 body {
   color: var(--text);
-  background: var(--bg);
+  background: var(--white);
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
   letter-spacing: -0.02em;
   -webkit-font-smoothing: antialiased;
-  /* 한글은 단어 중간에서 줄을 바꾸지 않는다("링/크" 방지). */
+  /* 한글은 단어 중간에서 줄을 바꾸지 않는다. */
   word-break: keep-all;
   /* 긴 주소처럼 끊을 곳이 없는 글은 칸 안에서 끊는다. 없으면 375px에서 가로 스크롤이 생겼다(2026-10-27 확인). */
   overflow-wrap: anywhere;
@@ -47,6 +72,16 @@ ol {
 }
 
 :focus-visible {
-  outline: 3px solid var(--brand);
+  outline: 3px solid var(--moon);
   outline-offset: 2px;
+}
+
+/* 화면에는 안 보이고 화면 낭독기만 읽는 글자(예: "새 창"). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }

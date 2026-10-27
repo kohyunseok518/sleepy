@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 슬리피 브랜드 홈페이지
 
-## Getting Started
+슬리피의 브랜드와 제품을 소개하고, 외부 구매 페이지와 문의로 연결하는 반응형 홈페이지입니다.
 
-First, run the development server:
+## 실행 방법
+
+Node.js 20 이상이 필요합니다.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+브라우저에서 http://localhost:3000 을 엽니다. 배포용 빌드는 `npm run build`입니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 수정 방법 (코드를 몰라도 됩니다)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+화면에 나오는 글, FAQ, 버튼 주소, 이미지는 모두 프로젝트 맨 위의 **`content.json` 한 파일**에 있습니다. 이 파일에서 큰따옴표(`" "`) 안의 글자만 바꾸고 저장하면 화면이 바뀝니다. GitHub 웹 화면에서 `content.json`을 열고 연필 아이콘으로 고친 뒤 저장(커밋)하면, Vercel이 자동으로 다시 배포해 몇 분 안에 사이트에 반영됩니다.
 
-## Learn More
+- **구매·문의 버튼 주소**: `links`의 `purchase`(스마트스토어 상품 주소), `inquiry`(문의 폼 주소)에 `https://`로 시작하는 주소를 넣습니다. 비워 두면 버튼이 회색 "링크 준비 중"으로 보입니다.
+- **문구**: `hero`(맨 위 큰 문구), `features`(특징), `steps`(사용 방법), `faq`(자주 묻는 질문), `contact`(문의 안내)의 `title`, `body`, `question`, `answer` 등을 고칩니다.
+- **FAQ 추가·삭제**: `faq.items` 안의 `{ "question": "...", "answer": "..." }` 묶음을 복사해 붙이거나 지웁니다. 묶음 사이에는 쉼표(`,`)가 있어야 하고, 마지막 묶음 뒤에는 쉼표가 없어야 합니다.
+- **이미지 바꾸기**: 새 이미지 파일을 `public` 폴더에 올리고, `image` 값을 `/파일이름.jpg`처럼 바꿉니다. `imageAlt`에는 이미지를 설명하는 짧은 글을 적습니다(이미지가 안 보일 때와 화면 낭독기에서 이 글이 나옵니다).
+- **주의**: 따옴표나 쉼표가 하나라도 빠지면 배포가 실패하고 사이트는 이전 상태로 유지됩니다. 실패하면 방금 고친 줄의 따옴표·쉼표를 확인해 주세요.
 
-To learn more about Next.js, take a look at the following resources:
+## 개발자용 구조
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| 파일 | 역할 |
+|---|---|
+| `content.json` | 화면의 모든 글·링크·이미지 경로 |
+| `app/page.tsx` | 메인 페이지 구성(섹션 순서, 마크업) |
+| `app/page.module.css` | 메인 페이지 스타일(모바일 기준, 768px 이상은 미디어 쿼리) |
+| `app/globals.css` | 색상·글꼴 같은 공통 값 |
+| `app/layout.tsx` | 문서 언어, 글꼴, 페이지 제목 |
+| `public/` | 이미지 파일 |

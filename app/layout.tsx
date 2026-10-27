@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import content from "@/content.json";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "슬리피",
-  description: "슬리피 브랜드 홈페이지",
+  title: content.site.title,
+  description: content.site.description,
 };
 
 export default function RootLayout({

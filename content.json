@@ -1,0 +1,67 @@
+{
+  "site": {
+    "name": "슬리피",
+    "title": "슬리피",
+    "description": "슬리피 브랜드 홈페이지"
+  },
+  "links": {
+    "purchase": "",
+    "inquiry": ""
+  },
+  "hero": {
+    "title": "[원문 대기] 제품 한 줄 설명",
+    "subtitle": "[원문 대기] 보조 설명",
+    "buttonLabel": "스마트스토어에서 구매",
+    "image": "/hero-placeholder.svg",
+    "imageAlt": "제품 대표 이미지"
+  },
+  "features": {
+    "heading": "제품 특징",
+    "items": [
+      {
+        "title": "[원문 대기] 특징 1",
+        "body": "[원문 대기] 특징 1 설명",
+        "image": "/placeholder.svg",
+        "imageAlt": "특징 1 이미지"
+      },
+      {
+        "title": "[원문 대기] 특징 2",
+        "body": "[원문 대기] 특징 2 설명",
+        "image": "/placeholder.svg",
+        "imageAlt": "특징 2 이미지"
+      },
+      {
+        "title": "[원문 대기] 특징 3",
+        "body": "[원문 대기] 특징 3 설명",
+        "image": "/placeholder.svg",
+        "imageAlt": "특징 3 이미지"
+      }
+    ]
+  },
+  "steps": {
+    "heading": "사용 방법",
+    "items": [
+      { "title": "[원문 대기] 1단계", "body": "[원문 대기] 1단계 설명" },
+      { "title": "[원문 대기] 2단계", "body": "[원문 대기] 2단계 설명" },
+      { "title": "[원문 대기] 3단계", "body": "[원문 대기] 3단계 설명" }
+    ]
+  },
+  "faq": {
+    "heading": "자주 묻는 질문",
+    "items": [
+      { "question": "[원문 대기] 질문 1", "answer": "[원문 대기] 답변 1" },
+      { "question": "[원문 대기] 질문 2", "answer": "[원문 대기] 답변 2" },
+      { "question": "[원문 대기] 질문 3", "answer": "[원문 대기] 답변 3" },
+      { "question": "[원문 대기] 질문 4", "answer": "[원문 대기] 답변 4" },
+      { "question": "[원문 대기] 질문 5", "answer": "[원문 대기] 답변 5" }
+    ]
+  },
+  "contact": {
+    "heading": "문의",
+    "description": "[원문 대기] 문의 안내 문구",
+    "buttonLabel": "문의하기"
+  },
+  "footer": {
+    "copyright": "© 슬리피"
+  }
+}

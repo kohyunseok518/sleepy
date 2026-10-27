@@ -67,6 +67,8 @@
 
 .heroImage {
   object-fit: cover;
+  /* 세로 사진이라 가로로 자를 때 제품이 있는 아래쪽을 남긴다. */
+  object-position: center 70%;
   z-index: -1;
   /* 로드 실패 시 대체 텍스트가 왼쪽 위에 붙지 않고 가운데 위쪽에 보이게 한다. */
   padding-top: 16px;
@@ -75,11 +77,22 @@
   text-align: center;
 }
 
+/* 사진 위 글자가 읽히도록 흰 막을 한 겹 덮는다. 이미지보다 뒤(DOM 순서)에 그려져야 해서 ::after를 쓴다. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.72);
+}
+
 .heroText {
   padding: 48px 20px;
 }
 
 .heroText h1 {
+  /* content.json의 \n을 줄바꿈으로 보여 준다. */
+  white-space: pre-line;
   font-size: 30px;
   line-height: 1.3;
   font-weight: 700;
@@ -165,6 +178,9 @@
   display: block;
   width: 100%;
   height: auto;
+  /* 사진 비율이 제각각이어도 카드 높이를 맞춘다. */
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   margin-bottom: 20px;
   /* 로드 실패 시 빈 칸 대신 회색 상자 가운데에 대체 텍스트를 보여 준다. */
   background: var(--line);
